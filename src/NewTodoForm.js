@@ -5,7 +5,15 @@ class NewTodoForm extends Component {
     super(props);
 
     this.state = { task: "" };
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
