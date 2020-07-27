@@ -9,6 +9,13 @@ class TodoList extends Component {
     this.state = {
       todos: [{ task: "Walk the dog" }, { task: "Feed the fish" }],
     };
+    this.create = this.create.bind(this);
+  }
+
+  create(newTodo) {
+    this.setState({
+      todos: [...this.state.todos, newTodo],
+    });
   }
 
   render() {
@@ -18,7 +25,7 @@ class TodoList extends Component {
     return (
       <div>
         <h1>TodoList</h1>
-        <NewTodoForm />
+        <NewTodoForm createTodo={this.create} />
         <ul>{todos}</ul>
       </div>
     );
